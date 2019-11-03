@@ -6,7 +6,12 @@ module Frack
  class Application
   class << self
    def call(env)
-    Rack::Response.new(render 'welcomes/index')
+     if env['PATH_INFO'] == '/'
+     @users = ['Toan','Son','Tri','Tu','Tam']
+     Rack::Response.new(render 'welcomes/index')
+   else
+    Rack::Response.new(render 'users/index')
+   end
    end
 
    def render(view)
@@ -17,7 +22,7 @@ module Frack
    end
 
    def render_template(path, &block)
-    Tilt.new("app/views/#{path}.html.erb").render(&block)
+    Tilt.new("app/views/#{path}.html.erb").render(self,&block)
    end
   end
  end
