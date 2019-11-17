@@ -31,7 +31,7 @@ module Frack
     def render_template(path, &block)
       Tilt.new("app/views/#{path}.html.erb").render(self, &block)
     end
-    end
+   end
  end
 
 use Rack::Static, root: 'public', urls: ['/images', '/js', '/css']
