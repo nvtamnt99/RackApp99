@@ -32,7 +32,14 @@ module Frack
       Tilt.new("app/views/#{path}.html.erb").render(self, &block)
     end
    end
- end
+  end
+
+class UserController < Frack::BaseController
+  def index
+    @users = %w[tam toan tu tri]
+    render('users/index')
+  end
+end
 
 use Rack::Static, root: 'public', urls: ['/images', '/js', '/css']
 use Rack::CommonLogger
