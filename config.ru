@@ -3,10 +3,8 @@
 $LOAD_PATH << '.'
 require 'rack'
 require 'tilt'
-
-module Frack
-end
-
+require 'lib/frack/application'
+require 'lib/frack/base_controller'
 require 'app/models/user'
 require 'app/controllers/users_controller'
 require 'app/controllers/welcomes_controller'
