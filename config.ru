@@ -21,7 +21,6 @@ module Frack
 
   class BaseController
     def render(view)
-      puts "------------------------------> view: #{view}"
       render_template('layouts/application') do
         render_template(view)
       end
@@ -31,7 +30,7 @@ module Frack
       Tilt.new("app/views/#{path}.html.erb").render(self, &block)
     end
    end
-  end
+end
 
 class UsersController < Frack::BaseController
   def index
@@ -48,7 +47,7 @@ end
 
 class User
   def self.all
-    @users = %w[tam toan tu tri son]
+    ['tam',' toan',' tu' ,'tri','son']
   end
 end
 
