@@ -34,7 +34,7 @@ module Frack
    end
   end
 
-class UserController < Frack::BaseController
+class UsersController < Frack::BaseController
   def index
     @users = %w[tam toan tu tri]
     render('users/index')
