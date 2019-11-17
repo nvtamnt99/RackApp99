@@ -35,7 +35,7 @@ module Frack
 
 class UsersController < Frack::BaseController
   def index
-    @users = %w[tam toan tu tri]
+    @users = User.all
     render('users/index')
   end
 end
@@ -48,7 +48,7 @@ end
 
 class User
   def self.all
-    @users = %[tam toan tu tri son]
+    @users = %w[tam toan tu tri son]
   end
 end
 
