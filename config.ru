@@ -46,7 +46,7 @@ class WelcomesController < Frack::BaseController
   end
 end
 
-class Users
+class User
   def self.all
     @users = %[tam toan tu tri son]
   end
