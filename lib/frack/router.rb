@@ -2,7 +2,8 @@ module Frack
   class Router
     ROUTES = {
       '/' => 'WelcomesController#index',
-      '/users' => 'UsersController#index'
+      '/users' => 'UsersController#index',
+      '/sign_up' => 'UsersController#new'
     }
 
     def initialize(app)
