@@ -5,8 +5,13 @@ module Frack
     ROUTES = [
       {
         request_method: 'get',
-        request_method: '/',
+        request_path: '/',
         mapping: 'WelcomesController#index'
+      },
+      {
+        request_method: 'get',
+        request_path: '/users',
+        mapping: 'UsersController#index'
       },
       {
         request_method: 'get',

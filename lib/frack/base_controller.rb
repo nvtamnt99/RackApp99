@@ -6,7 +6,7 @@ module Frack
       @env = env
       @request = Rack::Request.new(env)
     end
-    
+
     def render(view)
       render_template('layouts/application') do
         render_template(view)
@@ -15,6 +15,14 @@ module Frack
 
     def render_template(path, &block)
       Tilt.new("app/views/#{path}.html.erb").render(self, &block)
+    end
+
+    def redirect(location)
+      [
+        [],
+        302,
+        { 'Location' => location }
+      ]
     end
    end
 end
