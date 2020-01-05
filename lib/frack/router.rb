@@ -25,9 +25,8 @@ module Frack
     end
 
     def call(env)
-      request_method = env['REQUEST_METHOD']
+      request_method = env['REQUEST_METHOD'].downcase
       request_path = env['PATH_INFO']
-
       route = ROUTES.find do |i|
         i[:request_method] == request_method &&
           i[:request_path] == request_path
