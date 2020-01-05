@@ -34,7 +34,8 @@ module Frack
       end
 
       if route
-        env.merge!(controller_action(route[:to]))
+        mapping = route[:mapping]
+        env.merge!(controller_action(mapping))
         @app.call(env)
       else
         Rack::Response.new('Not found', 404)
