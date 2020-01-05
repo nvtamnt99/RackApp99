@@ -33,7 +33,7 @@ module Frack
           i[:request_path] == request_path
       end
 
-      if (mapping = ROUTES[env['PATH_INFO']])
+      if route
         env.merge!(controller_action(route[:to]))
         @app.call(env)
       else
