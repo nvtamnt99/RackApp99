@@ -1,6 +1,6 @@
 # config/database.rb
 # frozen_string_literal: true
-env = ENV['ENV'] || 'development'
+env = ENV['APP_ENV'] || 'development'
 root = File.expand_path __dir__
 db_config_file_path = File.join(root, 'database.yml')
 db_config_content = File.read(db_config_file_path)
