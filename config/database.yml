@@ -81,7 +81,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: mvc_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %> # tren heroku có bien nay roi, minh dung lại de no tu dong ket not toi database, va do APP_ENV minh set thanh production nen database se doc config nay ra
