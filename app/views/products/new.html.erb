@@ -1,0 +1,52 @@
+<div class="container-fluid h-100 bg-light text-dark">
+  <div class="row justify-content-center align-items-center">
+    <h2>New Product</h2>
+  </div>
+  <div class="row justify-content-center align-items-center">
+    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+      <form action='/products/new' method='post'>
+        <% if @product.errors.any? %>
+          <div class="bd-callout bd-callout-danger">
+            <% @product.errors.full_messages.each do |message| %>
+              <p class="text-danger">-
+                <%= message %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <label for="product_name">Product Name</label>
+          <input type="text" class="form-control" id="product_name" name='product[product_name]' placeholder="Enter product name">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your product with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="password">discontinued</label>
+          <input type="text" class="form-control" id="discontinued" name='product[discontinued]' placeholder="discontinued">
+        </div>
+        <div class="form-group">
+          <label for="product_id">product_id</label>
+          <input type="text" class="form-control" id="product_id" name='product[product_id]' placeholder="product_id">
+        </div>
+        <div class="form-group">
+          <label for="category_id">Category</label>
+          <select class="form-control" id="category_id" name='product[category_id]'>
+            <% Category.all.each do |category|%>
+              <option><%= category.id %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="user_ud">User</label>
+          <select class="form-control" id="user_id" name='product[user_id]'>
+            <% User.all.each do |user|%>
+              <option><%= user.id %></option>
+            <% end %>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <a href="/">
+    Home
+  </a>
+</div>

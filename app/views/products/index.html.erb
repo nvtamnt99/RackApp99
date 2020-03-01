@@ -1,0 +1,11 @@
+
+<div class="form-group">
+  <label for="product_name">Product</label>
+  <select class="form-control" id="product_name" name ='product[product_name]'>
+    <% @products.each do |product| %>
+      <option><li> <%= product.product_name %></li></option>
+      <option><li> <%= product.user&.email%></li></option>
+      <option><li> <%= product.category&.category_name%></li></option>
+    <% end %>
+  </select>
+</div>

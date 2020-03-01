@@ -8,20 +8,41 @@ module Frack
         request_path: '/',
         mapping: 'WelcomesController#index'
       },
+
       {
         request_method: 'get',
         request_path: '/users',
         mapping: 'UsersController#index'
       },
+
       {
         request_method: 'get',
         request_path: '/sign_up',
         mapping: 'UsersController#new'
       },
+
       {
         request_method: 'post',
         request_path: '/sign_up',
         mapping: 'UsersController#create'
+      },
+
+      {
+        request_method: 'get',
+        request_path: '/products/new',
+        mapping: 'ProductsController#new'
+      },
+
+      {
+        request_method: 'get',
+        request_path: '/products',
+        mapping: 'ProductsController#index'
+      },
+
+      {
+        request_method: 'post',
+        request_path: '/products/new',
+        mapping: 'ProductsController#create'
       }
     ].freeze
 
