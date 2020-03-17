@@ -13,9 +13,20 @@ require 'erb'
 require 'active_record'
 require 'action_mailer'
 
-require "letter_opener"
-ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../tmp/letter_opener', __FILE__)
-ActionMailer::Base.delivery_method = :letter_opener
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  domain: 'localhost:3000',
+  address:        "smtp.sendgrid.net",
+  port:            587,
+  authentication: :plain,
+  user_name:      'apikey',
+  password:       ENV['SENDGRID_API_KEY']
+}
+
+#require "letter_opener"
+#ActionMailer::Base.add_delivery_method :letter_opener, LetterOpener::DeliveryMethod, :location => File.expand_path('../tmp/letter_opener', __FILE__)
+#ActionMailer::Base.delivery_method = :letter_opener
 
 ActionMailer::Base.prepend_view_path(File.expand_path('../app/views/', __dir__))
 require 'app/mailers/application_mailer'

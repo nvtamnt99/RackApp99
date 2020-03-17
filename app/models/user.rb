@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :products
-  
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   private
 
   def send_welcome_email
-    puts 'Send welcome email'
+    UserMailer.with(user: self).welcome_email.deliver_now
   end
 
   unless ActiveRecord::Base.connection.table_exists?('users')
